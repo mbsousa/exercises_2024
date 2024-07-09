@@ -5,16 +5,16 @@
 # Show a message if the value is invalid and continue asking until the user enters a valid value.
 
 while True:
-    nota = input("Digite sua nota: ")
+    note = input("Enter your note: ")
     try:
-        nota = int(nota)
-        if nota >= 0 and nota <= 10:
+        note = int(note)
+        if note >= 0 and note <= 10:
             print("Ok.")
             break
         else:
-            print("Numero invalido")
+            print("Invalid number.")
     except ValueError:
-            print("Valor invalido.Tente novamente.")
+            print("Invalid value.Please, try again.")
 
 
 
