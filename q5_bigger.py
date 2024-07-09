@@ -1,3 +1,6 @@
+# Faça um programa que leia 5 números e informe o maior número.
+
+# Write a program that reads 5 numbers and reports the largest number.
 
 while True:
     one = input("Enter the first number: ")
