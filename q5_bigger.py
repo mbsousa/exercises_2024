@@ -3,30 +3,25 @@
 # Write a program that reads 5 numbers and reports the largest number.
 
 while True:
-    one = input("Enter the first number: ")
-    two = input("Enter the second number: ")
-    three = input("Enter the third number: ")
-    four = input("Enter the fourth number: ")
-    five = input("Enter the fifth number: ")
-    try:
-        one = int(one)
-        two = int(two)
-        three = int(three)
-        four = int(four)
-        five = int(five)
-        if one > two and one > three and one > four and one > five:
+    try: 
+        n1 = int(input("Enter the first number: "))
+        n2 = int(input("Enter the second number: "))
+        n3 = int(input("Enter the third number: "))
+        n4 = int(input("Enter the fourth number: "))
+        n5 = int(input("Enter the fifth number: "))
+        if n1 > n2 and n1 > n3 and n1 > n4 and n1 > n5:
             print(f"The biggest one is the first number")
             break
-        elif two > one and two > three and two > four and two > five:
+        elif n2 > n1 and n2 > n3 and n2 > n4 and n2 > n5:
             print(f"The biggest one is the second number")
             break
-        elif three > one and three > two and three > four and three > five:
+        elif n3 > n1 and n3 > n2 and n3 > n4 and n3 > n5:
             print(f"The biggest one is the third number")
             break
-        elif four > one and four > two and four > three and four > five:
+        elif n4 > n1 and n4 > n2 and n4 > n3 and n4 > n5:
             print(f"The biggest one is the fourth number.")
             break
-        elif five > one and five > two and five > three and five > four:
+        elif n5 > n1 and n5 > n2 and n5 > n3 and n5 > n4:
             print(f"The biggest one is the fifth number.")
             break
     except ValueError:
