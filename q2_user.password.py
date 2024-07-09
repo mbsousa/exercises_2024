@@ -10,7 +10,7 @@ while True:
     user = input("Your username: ")
     password = getpass.getpass("Your password: ")
     if password != user:
-        print("Successfully register.")
+        print("Successfully registered.")
         break
     else:
         print("Username and password should not the same. Please, try again.")
