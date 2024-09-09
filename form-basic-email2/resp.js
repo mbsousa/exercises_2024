@@ -1,64 +1,76 @@
 const frm = document.querySelector("form")
 const resp = document.querySelector("h3")
 
-const nomes = []
 const emails = []
 
 
 frm.addEventListener("submit", (e) => {
     e.preventDefault()
-    const nome = frm.inNome.value
+    const n = frm.inNome.value
     const email = frm.inEmail.value
-    const i = nomes.indexOf(nome)
-    const em = emails.indexOf(email)
 
-    if (i !== -1) {
-        alert("Nome já cadastrado!")
-        frm.inNome.focus()
-        return
+    i = -1
+   if (emails.length!==0) {
+    for (const e of emails){
+        if (e.nome === n) {
+            i = index /* Marca o indice do nome existente */
+            break
+        }
+        }
     }
 
-    if (em !== -1) {
-        alert("Email já cadastrado!")
-        frm.inNome.focus()
-        return
-    }
-
-    nomes.push(nome)
-    emails.push(email)
-    alert("Cadastrado realizado com sucesso!")
-    frm.reset()
-    frm.inNome.focus()
+   if (i===-1){
+    const obj=({'nome':n, 'email':email})
+    emails.push(obj)
+    resp.innerText=`O nome ${obj.nome} foi incluido com sucesso!`
+   }
+   else {
+    resp.innerText=`O nome ${obj.nome} já está cadastrado.`
+   }
 
 })
 
 
 frm.btProcurar.addEventListener("click", () => {
+
+    const n = frm.inNome.value
+
     if (!frm.checkValidity()) {
         alert("Informe o nome a ser cadastrado!")
         frm.inNome.focus()
         return
     }
 
-    const i = nomes.indexOf(nome)
+    let i = -1
 
-            if (i !== -1) {
-                resp.textContent = `Nome: ${nomes[i]} - Email: ${emails[i]}`
-            } else {
-                resp.textContent = "Nome não encontrado!"
+    if (emails.length!==0){
+        for (const e of emails){
+            const {nome,email} = e 
+            if (nome == n){
+                i=1
+                break
             }
-        
+        }    
+    }
+    
+    if (i==-1){
+        resp.innerText=`O nome ${n} foi incluido com sucesso!`
+    }
+    else {
+        resp.innerText=`O nome ${n} já está cadastrado!Tente outro nome!`
+    }
+
 })
 
 frm.btListar.addEventListener("click", () => {
-    if (nomes.length === 0) {
+    if (emails.length === 0) {
         resp.textContent = "Nenhum cadastro encontrado!"
         return
     }
 
     let lista = "Lista de nomes e emails cadastrados:"
-    for (let i = 0; i < nomes.length; i++) {
-        lista += `\n${nomes[i]} - \n${emails[i]}\n`
+    for (let i = 0; i < emails.length; i++) {
+        lista += `\n${emails[i].nome} - \n${emails[i].email}\n`
     }
 
     resp.textContent = lista
